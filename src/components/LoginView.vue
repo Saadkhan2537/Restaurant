@@ -25,14 +25,15 @@ export default {
 
 async LoginView() {
     let result = await axios.get(`http://localhost:3000/user?email=${this.email}&password=${this.password}`);
+
     if (result.status === 200 && result.data.length > 0) {
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
         this.$router.push({
             name: 'HomeView'
         });
     }
+}
 },
-
  mounted() {
       let users = localStorage.getItem('user-info');
       if (users) {
@@ -43,7 +44,7 @@ async LoginView() {
 
   } 
 
-}
+
 }
 </script>
 

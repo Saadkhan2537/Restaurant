@@ -43,7 +43,7 @@ export default {
         }
 
     },
-    mounted() {
+  mounted() {
       let users = localStorage.getItem('user-info');
       if (users) {
           this.$router.push({
