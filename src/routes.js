@@ -2,6 +2,8 @@ import HomeView from './components/HomeView.vue'
 import SignUp from './components/SignUp.vue'
 import {createRouter, createWebHistory} from 'vue-router'
 import LoginView from './components/LoginView.vue'
+import AddResto from './components/AddResto'
+import UpdateResto from './components/UpdateResto'
 
 const routes=[
 
@@ -23,6 +25,20 @@ const routes=[
         name:'LoginView',
         component:LoginView,
         path:'/login'
+
+    },
+    {
+
+        name:'AddResto',
+        component:AddResto,
+        path:'/add'
+
+    },
+    {
+
+        name:'update',
+        component:UpdateResto,
+        path:'/update'
 
     }
 ]

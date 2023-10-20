@@ -2,10 +2,10 @@
 
 <div class="nav">
 
-    <a href="a">Home</a>
-    <a href="a">Add Restaurant</a>
-    <a href="a">Update</a>
-    <a href="a">Logout</a>
+    <router-link to="/">Home</router-link>
+    <router-link to="add">Add Restaurant </router-link>
+    <router-link to="update">Update Restaurant </router-link>
+    <a v-on:click="logout" href="#">Logout</a>
 
 </div>
 
@@ -16,7 +16,18 @@
 <script> 
 export default {
 
-name:'HeaderView'
+name:'HeaderView',
+methods:{
+
+logout(){
+
+localStorage.clear();
+this.$router.push({name:'LoginView'})
+
+
+}
+
+}
 
 
 }
