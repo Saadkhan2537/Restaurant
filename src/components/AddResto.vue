@@ -6,7 +6,7 @@
     <input type="text" name="name" placeholder="Enter Name" v-model="restaurant.name">
     <input type="address" name="address" placeholder="Enter Address" v-model="restaurant.address">
     <input type="contatc" name="contatc" placeholder="Enter Contatc No" v-model="restaurant.contact">
-    <button v-on:click="AddRestaurant()">Add New Restaurant</button>
+    <button v-on:click="addRestaurant()">Add New Restaurant</button>
 </form>
 </template>
 
@@ -27,7 +27,7 @@ export default {
             }
         }
     },
-   async AddRestaurant() {
+   async addRestaurant() {
         //console.warn(this.restaurant)
         const result=await axios.post("http://localhost:3000/restaurant",
         {
