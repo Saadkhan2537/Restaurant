@@ -11,43 +11,51 @@
 </template>
 
 <script>
-import HeaderView from './HeaderView.vue'
+import HeaderView from './HeaderView.vue';
 import axios from 'axios';
 
 export default {
-    name: 'AddResto',
-    components: {
-        HeaderView
-    },
-    data() {
-        return {
-            restaurant: {
-                name: '',
-                address: '',
-                contact: ''
-            }
-        }
-    },
-   async AddRestaurant() {
-        //console.warn(this.restaurant)
-        const result=await axios.post("http://localhost:3000/restaurant",
-        {
-            name:this.restaurant.name,
-            contact:this.restaurant.contact,
-            address:this.restaurant.address,
+  name: 'AddResto',
+  components: {
+    HeaderView,
+  },
+  data() {
+    return {
+      restaurant: {
+        name: '',
+        address: '',
+        contact: '',
+      },
+    };
+  },
+  methods: {
+    async addRestaurant() {
+      try {
+        const response = await axios.post('http://localhost:3000/restaurant', {
+          name: this.restaurant.name,
+          contact: this.restaurant.contact,
+          address: this.restaurant.address,
         });
-        console.warn('Result',result);
-    }, 
-    mounted() {
-        let users = localStorage.getItem('user-info');
-        if (!users) {
-            this.$router.push({
-                name: 'SignUp'
-            });
-        }
+
+        console.log('Response:', response.data);
+        // Handle success or do something with the response data
+      } catch (error) {
+        console.error('Error adding restaurant:', error.message);
+        // Handle the error, show a message to the user, etc.
+      }
+    },
+  },
+  mounted() {
+    const user = localStorage.getItem('user-info');
+    if (!user) {
+      this.$router.push({
+        name: 'SignUp',
+      });
     }
-}
+  },
+};
 </script>
+
 
 
 <style>
