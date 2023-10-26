@@ -4,15 +4,16 @@
 <form class="register">
     <h2>Add Resaurant</h2>
     <input type="text" name="name" placeholder="Enter Name" v-model="restaurant.name">
-    <input type="address" name="address" placeholder="Enter Address" v-model="restaurant.address">
-    <input type="contatc" name="contatc" placeholder="Enter Contatc No" v-model="restaurant.contact">
-    <button v-on:click="addRestaurant()">Add New Restaurant</button>
+    <input type="text" name="address" placeholder="Enter Address" v-model="restaurant.address">
+    <input type="text" name="contatc" placeholder="Enter Contatc No" v-model="restaurant.contact">
+    <button v-on:click="addRestaurant">Add New Restaurant</button>
 </form>
 </template>
 
 <script>
 import HeaderView from './HeaderView.vue'
 import axios from 'axios';
+
 export default {
     name: 'AddResto',
     components: {
@@ -27,7 +28,7 @@ export default {
             }
         }
     },
-   async addRestaurant() {
+   async AddRestaurant() {
         //console.warn(this.restaurant)
         const result=await axios.post("http://localhost:3000/restaurant",
         {
@@ -42,12 +43,12 @@ export default {
         if (!users) {
             this.$router.push({
                 name: 'SignUp'
-            })
+            });
         }
-
     }
 }
 </script>
+
 
 <style>
 
