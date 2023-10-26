@@ -31,14 +31,14 @@ const routes=[
 
         name:'AddResto',
         component:AddResto,
-        path:'/add'
+        path:'/addresto'
 
     },
     {
 
         name:'update',
         component:UpdateResto,
-        path:'/update'
+        path:'/updateresto'
 
     }
 ]

@@ -19,7 +19,7 @@ body{
     padding:0px;
 
 }
-.register, .LoginView {
+.register, .LoginView .add{
     width: 400px;
     height: 400px;
     text-align: center;
@@ -40,11 +40,24 @@ body{
 .inputf {
     margin-bottom: 5px;
 }
-
+.register input, .login input , .add input{
+width: 300px;
+height: 40px;
+padding-left: 20px;
+display: block;
+margin-bottom: 30px;
+margin-right: auto;
+margin-left: auto;
+border: 1px solid skyblue;
+}
 .register button, .login button {
     border: 1px solid skyblue;
     color: #fff;
     background-color: skyblue;
+    width: 320px;
+    height: 40px;
+    cursor: pointer;
 }
+
 
 </style>

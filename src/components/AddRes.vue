@@ -1,17 +1,15 @@
 <template>
-  <HeaderView /> 
-<h1> Welcome to the Update Restaurant page </h1>
+<HeaderView />
+<h1> Welcome to Add Restaurant  </h1>
 </template>
 
-    
 <script>
 import HeaderView from './HeaderView.vue'
 export default {
-    name: 'UpdateResto',
+    name: 'AddRes',
     components:{ 
     HeaderView
     },
-
     mounted() {
         let users = localStorage.getItem('user-info');
         if (!users) {
@@ -24,7 +22,6 @@ export default {
 }
 </script>
 
-    
 <style>
 
-    </style>
+</style>
