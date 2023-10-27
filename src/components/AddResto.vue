@@ -37,7 +37,11 @@ export default {
           address: this.restaurant.address,
         });
 
-        console.log('Response:', response.data);
+        if (response.status == 201) {
+                    this.$router.push({
+                        name: 'HomeView'
+                    });
+                }
         // Handle success or do something with the response data
       } catch (error) {
         console.error('Error adding restaurant:', error.message);
