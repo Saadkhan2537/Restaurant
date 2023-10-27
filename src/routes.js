@@ -35,11 +35,9 @@ const routes=[
 
     },
     {
-
-        name:'update',
-        component:UpdateResto,
-        path:'/updateresto/:id'
-
+        name: 'update',
+        component: UpdateResto,
+        path: '/updateresto/:id'
     }
 ]
  const router=createRouter({
