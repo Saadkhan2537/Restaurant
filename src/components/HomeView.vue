@@ -15,7 +15,8 @@
         <td>{{ item.contact }}</td>
         <td>{{ item.address }}</td>
         <td>
-            <router-link :to="'/updateresto/'+item.id">Update</router-link>/<router-link :to="'/delete/'+item.id">Delete</router-link>
+            <router-link :to="'/updateresto/'+item.id">Update</router-link>/
+            <Button v-on:click="deleteRestaurant(item.id)">Delete</Button>
         </td>
 
     </tr>
@@ -39,10 +40,23 @@ export default {
 
     },
     methods: {
-        deleteRestaurant() 
+        async deleteRestaurant(id) 
         {
-            console(this.$route.params.id)
+            try {
+                const response = await axios.delete('http://localhost:3000/restaurant/' +id);
+                if (response.status == 201) {
+                    this.loadData();
+                }
+                 //console.log('Response:', response.data);
+                // Handle success or do something with the response data
+            } catch (error) {
+                console.error('Error updating restaurant:', error.message);
+                // Handle the error, show a message to the user, etc.
+            }
         }
+    },
+    async loadData() {
+        this.loadData()
     },
     async mounted() {
         let users = localStorage.getItem('user-info');
