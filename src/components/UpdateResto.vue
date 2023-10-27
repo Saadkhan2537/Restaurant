@@ -5,7 +5,7 @@
     <h2>Update Resaurant</h2>
     <input type="text" name="name" v-model="restaurant.name">
     <input type="text" name="address" placeholder="Enter Address" v-model="restaurant.address">
-    <input type="text" name="contatc" placeholder="Enter Contatc No" v-model="restaurant.contact">
+    <input type="text" name="contact" placeholder="Enter Contact No" v-model="restaurant.contact">
     <button v-on:click="updateRestaurant">Update Restaurant</button>
 </form>
 </template>
@@ -34,7 +34,7 @@ export default {
     methods: {
         async updateRestaurant() {
             try {
-                const response = await axios.post('http://localhost:3000/restaurant/' + this.$route.params.id, {
+                const response = await axios.patch('http://localhost:3000/restaurant/' + this.$route.params.id, {
                     name: this.restaurant.name,
                     contact: this.restaurant.contact,
                     address: this.restaurant.address,
@@ -44,7 +44,7 @@ export default {
                         name: 'HomeView'
                     });
                 }
-                // console.log('Response:', response.data);
+                 //console.log('Response:', response.data);
                 // Handle success or do something with the response data
             } catch (error) {
                 console.error('Error updating restaurant:', error.message);

@@ -5,7 +5,7 @@
     <h2>Add Resaurant</h2>
     <input type="text" name="name" placeholder="Enter Name" v-model="restaurant.name">
     <input type="text" name="address" placeholder="Enter Address" v-model="restaurant.address">
-    <input type="text" name="contatc" placeholder="Enter Contatc No" v-model="restaurant.contact">
+    <input type="text" name="contact" placeholder="Enter contact No" v-model="restaurant.contact">
     <button v-on:click="addRestaurant">Add New Restaurant</button>
 </form>
 </template>
