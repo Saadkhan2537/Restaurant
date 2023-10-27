@@ -2,13 +2,21 @@
 <HeaderView />
 <h1> Welcome {{ name }} to the Home page </h1>
 <table class="table">
-    <tr><td>Id</td><td>Name</td><td>Contact</td><td>Address</td><td>Action</td></tr>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Contact</td>
+        <td>Address</td>
+        <td>Action</td>
+    </tr>
     <tr v-for="item in restaurant" :key=item.id>
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.contact }}</td>
         <td>{{ item.address }}</td>
-        <td><router-link :to="'/updateresto/'+item.id">Update</router-link></td>
+        <td>
+            <router-link :to="'/updateresto/'+item.id">Update</router-link>/<router-link :to="'/delete/'+item.id">Delete</router-link>
+        </td>
 
     </tr>
 </table>
@@ -25,12 +33,17 @@ export default {
     data() {
         return {
             name: '',
-            restaurant:''
+            restaurant: ''
 
         }
 
     },
-
+    methods: {
+        deleteRestaurant() 
+        {
+            console(this.$route.params.id)
+        }
+    },
     async mounted() {
         let users = localStorage.getItem('user-info');
         this.name = JSON.parse(users).name;
@@ -39,21 +52,21 @@ export default {
                 name: 'SignUp'
             })
         }
-        let result= await axios.get("http://localhost:3000/restaurant");
-        this.restaurant=result.data;
-        
+        let result = await axios.get("http://localhost:3000/restaurant");
+        this.restaurant = result.data;
 
     }
 }
 </script>
 
 <style>
-.table{
-  border: 1px solid; 
+.table {
+    border: 1px solid;
 }
-.table td{
-  border: 1px solid;
-  width: 160px;
-  height: 40px; 
+
+.table td {
+    border: 1px solid;
+    width: 160px;
+    height: 40px;
 }
 </style>
